@@ -10,13 +10,13 @@ const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3100
 const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.use(express.static(publicDirectoryPath))
 
 io.on('connection', (socket) => {
-    console.log('-------Uusi WebSocket connection!------')
+    console.log('-------Uusi-web-socket-yhteys!------')
 
     socket.on('join', (options, callback) => {
         const { error, user } = addUser({ id: socket.id, ...options })
@@ -27,8 +27,8 @@ io.on('connection', (socket) => {
 
         socket.join(user.room)
 
-        socket.emit('message', generateMessage('Huoneenhoitaja Robotti', 'Terveoloa!'))
-        socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} liittyi seuraan`))
+        socket.emit('message', generateMessage('Simon ovimies-robotti Robbe', 'Terveoloa! :)'))
+        socket.broadcast.to(user.room).emit('message', generateMessage('Ovimies-Robbe', `${user.username} liittyi seuraan`))
         io.to(user.room).emit('roomData', {
             room: user.room,
             users: getUsersInRoom(user.room)
@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
         const user = removeUser(socket.id)
 
         if (user) {
-            io.to(user.room).emit('message', generateMessage('Admin', `${user.username} häippäs!`))
+            io.to(user.room).emit('message', generateMessage('Robo-Robbe', `${user.username} lähti huoneesta.`))
             io.to(user.room).emit('roomData', {
                 room: user.room,
                 users: getUsersInRoom(user.room)
@@ -69,5 +69,5 @@ io.on('connection', (socket) => {
 })
 
 server.listen(port, () => {
-    console.log(`Palvelin käynnissä portissa ${port}!`)
+    console.log(`Palvelin on käynnissä portissa ${port}!`)
 })
