@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
 
         socket.join(user.room)
 
-        socket.emit('message', generateMessage('Simon ovimies-robotti Robbe', 'Terveoloa! :)'))
+        socket.emit('message', generateMessage('Ovimies-robotti Robbe', 'Terveoloa! :)'))
         socket.broadcast.to(user.room).emit('message', generateMessage('Ovimies-Robbe', `${user.username} liittyi seuraan`))
         io.to(user.room).emit('roomData', {
             room: user.room,
