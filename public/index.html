@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>meidän oma chatti</title>
+    <title>chatti-app | liity</title>
     <link rel="icon" href="/img/favicon.png">
     <link rel="stylesheet" href="/css/styles.min.css">
 </head>
@@ -11,20 +11,26 @@
     <div class="centered-form">
 
         <div class="centered-form__box">
-            <h1>Liity live chattiin</h1>
+            <h1 style="color: rgb(145, 25, 182)">Liity chattiin</h1>
             <form action="/chat.html">
                 <label>Nimimerkki</label>
                 <input type="text" name="username" placeholder="Nimimerkki.." required>
                 <label>Huone</label>
-                <p>Laita pelkkä 1 jos ei muuta sovita.</p>
-                <input type="text" name="room" placeholder="Huone.." required>
+
+                <input type="text" name="room" placeholder="Huone, esim. pelkkä 1.." required>
+                <br>
                 <button>Joinaa</button>
             </form>
-            <h3>(i) Simon chat app harjoitusprojekti express.js palvelimella ja socket io tekniikalla,
-                joka mahdollistaa datan lähettämisen kohdeselaimelle ilman http pyyntöä. Voit kokeilla vaikka 2
-                selaimella antamalla eri nimen mutta saman huoneen. Kohdeselain päivittyy heti kun lähettävä selain
-                lähettää viestin.
+            <br>
+            _________________________________
+            <br>
+            <h3> Simon chat app harjoitusprojekti express.js & socket io tekniikalla.
             </h3>
+            <br>
+            <p>Voit kokeilla vaikka 2 selaimella antamalla eri nimet mutta saman huoneen. Kohdeselaimeen päivittyy
+                uusi rivi kun lähettävä selain
+                lähettää viestin.</p>
+
         </div>
     </div>
 </body>
